@@ -85,7 +85,7 @@ async def chat(input: ChatInput):
 
     # 5. Send to LLM
     gpt_reply = llm.invoke([
-        SystemMessage(content=("You are 桜AI, the AI of パシフィックコンサルタンツ株式会社")),
+        SystemMessage(content=("You are ミライAI, the AI of パシフィックコンサルタンツ株式会社")),
         HumanMessage(content=final_prompt)
     ])
 
