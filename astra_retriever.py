@@ -9,7 +9,7 @@ load_dotenv()
 ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
 ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")
 ASTRA_DB_NAMESPACE = os.getenv("ASTRA_DB_NAMESPACE")
-ASTRA_DB_COLLECTION = os.getenv("ASTRA_DB_COLLECTION", "files")  # fallback
+ASTRA_DB_COLLECTION = os.getenv("ASTRA_DB_COLLECTION", "data")  # fallback
 
 # Instantiate the vector store with error handling
 try:
@@ -20,7 +20,7 @@ try:
         collection_name=ASTRA_DB_COLLECTION,
         autodetect_collection=True
     )
-    retriever = vector_store.as_retriever(search_kwargs={"k": 3})
+    # retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
 except Exception as e:
     warnings.warn(f"❌ Failed to connect to existing collection: {e}")
