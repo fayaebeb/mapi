@@ -27,7 +27,7 @@ class ChatInput(BaseModel):
     message: str
     useweb: Optional[bool] = False
     usedb: Optional[bool] = False
-    db: str = "data"
+    db: str = "db1"
     history: Optional[List[dict]] = None
 
 def convert_history_to_messages(history: Optional[List[dict]]) -> List:
@@ -103,7 +103,7 @@ async def chat(input: ChatInput):
     if input.usedb:
         try:
             search_query = generate_search_query(input.message)
-            db_collection = input.db or os.getenv("ASTRA_DB_COLLECTION", "data")
+            db_collection = input.db or os.getenv("ASTRA_DB_COLLECTION", "db1")
             retriever = get_vector_store(db_collection)\
                                 .as_retriever(search_kwargs={"k": 3})
             retrieved_docs = retriever.invoke(input.message)
@@ -260,7 +260,7 @@ async def extract(input: ExtractInput):
         metadata["session_id"] = input.session_id
 
     # Step 5: Attempt to save to Astra DB
-    db_collection = input.db or os.getenv("ASTRA_DB_COLLECTION", "data")
+    db_collection = input.db or os.getenv("ASTRA_DB_COLLECTION", "db1")
     
     try:
         vector_store = get_vector_store(db_collection)
