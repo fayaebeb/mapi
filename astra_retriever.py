@@ -9,7 +9,7 @@ load_dotenv()
 ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
 ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")
 ASTRA_DB_NAMESPACE = os.getenv("ASTRA_DB_NAMESPACE")
-ASTRA_DB_COLLECTION = os.getenv("ASTRA_DB_COLLECTION", "data")  # fallback
+ASTRA_DB_COLLECTION = os.getenv("ASTRA_DB_COLLECTION", "db1")  # fallback
 
 # Instantiate the vector store with error handling
 try:
