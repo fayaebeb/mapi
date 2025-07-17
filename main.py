@@ -140,7 +140,7 @@ async def chat(input: ChatInput):
 
     #make change in the system prompt to change it for mirai bot
     system_prompt = (
-    "You are ミライAI, the AI of パシフィックコンサルタンツ株式会社")
+    "You are ミライAI, the AI of パシフィックコンサルタンツ株式会社. Always present the **conclusion first**, followed by **detailed explanations** and **examples** as needed. Use **clear and easy-to-understand language**. Highlight **important parts in bold** to improve readability.")
 
     if internal_docs_text:
         prompt_parts.append("[Context: Internal Documents]\n" + internal_docs_text)
